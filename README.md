@@ -1,3 +1,6 @@
+FIXES:
+replaced defunc tidyverse commands
+
 # Introduction
 
 This package is used as a classifier for determining the origin of a mutation, specifically
