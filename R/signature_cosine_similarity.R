@@ -30,9 +30,9 @@ signature_cosine_similarity <- function(mutations.vector, signature.matrix){
 
   # Defines a function that joins two data frames and replaces NA with 0
   left_join_NA <- function(x, y, by) {
-    left_join(x = x, y = y, by = by) %>%
-      mutate_each(funs(replace(., which(is.na(.)), 0)))
-  }
+  dplyr::left_join(x = x, y = y, by = by) |>
+    dplyr::mutate(dplyr::across(dplyr::everything(), \(col) replace(col, which(is.na(col)), 0)))
+}
 
   # Creates a vector of the 96 mutation types
   mutations <- get_mutation_types()
